@@ -12,45 +12,44 @@ Download [the latest .jar](https://github.com/sugoi-wada/android-publisher-gradl
 
 1. Add plugin dependency
 
-```
-buildscript {
-    dependencies {
-        classpath files('path/to/androidpublisher-1.0-SNAPSHOT.jar')
-    }
-}
-```
+        buildscript {
+            dependencies {
+                classpath files('path/to/androidpublisher-1.0-SNAPSHOT.jar')
+            }
+        }
 
 2.  Apply plugin
 
-```
-apply plugin: 'publisher'
-```
+        apply plugin: 'publisher'
 
 3.  Configure your publish resources
 
-```
-publish {
-    clientEmail "xxxx@developer.gserviceaccount.com"
-    p12File file("path/to/p12File.p12")
+        publish {
+            clientEmail "xxxx@developer.gserviceaccount.com"
+            p12File file("path/to/p12File.p12")
+        
+            listings {
+                japanese { // free word
+                    language 'ja-JP' // BCP-47 language tag
+                    title "${japaneseTitle}"
+                    video "https://www.youtube.com/watch?v=${jpVideo}"
+                    recentChangesFile file("path/to/recent-changes.txt")
+                    shortDescriptionFile file("path/to/short-description.txt")
+                    fullDescriptionFile file("path/to/full-description.txt")
+                    phoneScreenshotsDir file("path/to/phone-screenshots")
+                }
+                english { // free word
+                    language 'en-US' // BCP-47 language tag
+                    title "${englishTitle}"
+                    video "https://www.youtube.com/watch?v=${enVideo}"
+                    recentChangesFile file("path/to/recent-changes.txt")
+                    shortDescriptionFile file("path/to/short-description.txt")
+                    fullDescriptionFile file("path/to/full-description.txt")
+                    phoneScreenshotsDir file("path/to/phone-screenshots")
+                }
+        }
 
-    listings {
-        japanese { // free word
-            language 'ja-JP' // BCP-47 language tag
-            title "${japaneseTitle}"
-            video "https://www.youtube.com/watch?v=${jpVideo}"
-            recentChangesFile file("path/to/recent-changes.txt")
-            shortDescriptionFile file("path/to/short-description.txt")
-            fullDescriptionFile file("path/to/full-description.txt")
-            phoneScreenshotsDir file("path/to/phone-screenshots")
-        }
-        english { // free word
-            language 'en-US' // BCP-47 language tag
-            title "${englishTitle}"
-            video "https://www.youtube.com/watch?v=${enVideo}"
-            recentChangesFile file("path/to/recent-changes.txt")
-            shortDescriptionFile file("path/to/short-description.txt")
-            fullDescriptionFile file("path/to/full-description.txt")
-            phoneScreenshotsDir file("path/to/phone-screenshots")
-        }
-}
-```
+4.  Run the following from terminal. You can see new Google Play Tasks.
+
+        ./gradlew tasks
+        
