@@ -33,7 +33,7 @@ class ApkTask extends DefaultTask {
         def edits = publisher.edits()
         def appEdit = edits.insert(applicationId, null).execute()
 
-        def apkFile = new FileContent(MIMETYPE, new File("${projectDir}/build/outputs/apk/app-${flavor.name}-release.apk"))
+        def apkFile = new FileContent(MIMETYPE, new File("${project.buildDir}/outputs/apk/app-${flavor.name}-release.apk"))
         def newApk = edits.apks().upload(applicationId, appEdit.id, apkFile).execute()
 
         def track = new Track()
