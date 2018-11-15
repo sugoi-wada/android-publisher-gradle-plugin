@@ -1,3 +1,7 @@
+# DEPRICATED
+
+Please use the [Gradle Play Publisher](https://github.com/Triple-T/gradle-play-publisher) or newer other libraries.
+
 # Android Publisher Gradle Plugin
 This plugin integrates Google Play Developer API (Publishing API) with the Gradle build system. With this plugin, you can upload apks and listings directly via command line, IntelliJ, Android Studio and other IDEs.
 
